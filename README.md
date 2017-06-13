@@ -43,7 +43,7 @@ On the right side there are details about connected clients and their devices.
 ___
 
 The interface has some functional:
-1. To set the client's name click on the name's area. This name is assigned to the client's ip on the server for saving.
+1. To set the client's name click on the name's area. After changing this name is assigned to the client's ip on the server for saving.
 
 &emsp;![Change name](https://github.com/anzodev/COMonitoring/blob/master/pict/click-name.png)
 
