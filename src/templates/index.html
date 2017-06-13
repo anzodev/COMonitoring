@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="ru"> <!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>COMonitoring</title>
+	<meta name="description" content="Pololu Wixel Spectrum Analysis">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="shortcut icon" href="../static/image/favicon.png" type="image/x-icon">
+
+	<!-- css libs -->
+	<link rel="stylesheet" href="../static/libs/normalize/normalize.css">
+	<link rel="stylesheet" href="../static/libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/libs/animate/animate.css">
+	<link rel="stylesheet" href="../static/libs/scrollbar/jquery.scrollbar.css">
+
+	<!-- css main file -->
+	<link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+
+<body>
+
+	<div class="start-window">
+		<div class="logo">COMonitoring</div>
+		<p class="description">Pololu Wixel Spectrum Analysis</p>
+	</div>
+
+	<div class="wrapper">
+
+		<div class="left-side">
+			<div id="graph" style="width: 100%; height: 100%"></div>
+		</div>
+
+		<div class="right-side">
+			<div class="header">
+				<div class="logo">COMonitoring</div>
+				<a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+			</div>
+			<ul class="client-list"></ul>
+			<div class="footer">
+				<div class="version">v.1.7.0</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- js libs -->
+	<script src="../static/libs/jquery/jquery-1.11.2.min.js"></script>
+	<script src="../static/libs/socketio/socket.io.min.js"></script>
+	<script src="../static/libs/flot/jquery.flot.js"></script>
+	<script src="../static/libs/flot/jquery.flot.resize.js"></script>
+	<script src="../static/libs/scrollbar/jquery.scrollbar.min.js"></script>
+
+	<!-- js main file -->
+	<script src="../static/js/common.js"></script>
+
+</body>
+
+</html>
