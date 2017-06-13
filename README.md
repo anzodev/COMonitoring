@@ -1,23 +1,14 @@
 # COMonitoring
 
-Monitoring system of signal level that use programmable modules Pololu Wixel and Python scripts.
+Monitoring system of signal level that uses programmable modules Pololu Wixel and [Python 3.6+](https://www.python.org/downloads/).
 
-> Current version stably works on Windows. The system can support up to 5 clients with 10 Wixels on each.  
-
-## Requirements
-
-1. Server and clients in one network.
-2. [Python 3.6+](https://www.python.org/downloads/).
-3. Modules flask and flask_socketio:
-```
-C:\pip install flask flask_socketio
-```
+> Current version was created for OS Windows. You can run it on another OS using Python scripts in [src](/src) folder and module [cx_Freeze](http://cx-freeze.readthedocs.io/en/latest/index.html). The system supports up to 5 clients with 10 Wixels on each.    
 
 ## Hardware
 
 Pololu Wixel
 
-![Pololu Wixel](https://github.com/anzodev/COMonitoring/blob/master/pictures/wixels.png)
+![Pololu Wixel](https://github.com/anzodev/COMonitoring/blob/master/pict/wixels.png)
 
 ## Software
 
@@ -30,55 +21,46 @@ Pololu Wixel
 
 ## How Does It Work
 
-Wixel starts sending a data about signal level after its connection. Python client script finds all connected devices via virtual COM ports and gets data thrue them and sends to the server. The server sends this data to the client's browser.
-
-![COMonitoring scheme](https://github.com/anzodev/COMonitoring/blob/master/pictures/comonitoring.jpg)
+Wixel starts sending a data about signal level after its connection. Python client's app finds all connected devices via virtual COM ports and gets data thrue them and sends to the server. The server sends this data to the client's browser.
 
 ## Run
-1. Put the [server part](https://github.com/anzodev/COMonitoring/tree/master/app/server) of system into the server's computer. Run **com_server.py**.
-2. Run [client's script](https://github.com/anzodev/COMonitoring/tree/master/app/client) on client's computers. For Windows users there is the executable version **com_client.msi** so you dont need to install Python on your client's computer. Script open default browser with right page automatically.
+1. Put the [server part](https://github.com/anzodev/COMonitoring/tree/master/app) of the system into the server's computer. Run **com_server.exe**.
+2. Put the [client part](https://github.com/anzodev/COMonitoring/tree/master/app) of the system into the clients' computers. Run **com_client.exe**. The app opens default browser with right page.
+> Client's app can works with server's app from the one computer.
 3. Connect Wixel devices to client's computer.
 
-> Server's and client's scripts can work from the one computer.
-
-![Connecting Wixel devices](https://github.com/anzodev/COMonitoring/blob/master/pictures/wixel-connection.jpg)
+![Connecting Wixel devices](https://github.com/anzodev/COMonitoring/blob/master/pict/connecting-devices.png)
 
 ## User's Web Interface
 
-Web interface consists of two parts. On the left side is graph with signal level.
+Web interface consists of two parts. On the left side there is graph with data of signal level from Wixels.
 
-![Graph](https://github.com/anzodev/COMonitoring/blob/master/pictures/graph.jpg)
+![Graph](https://github.com/anzodev/COMonitoring/blob/master/pict/graph.png)
 
-On the right side are details about connected clients and his devices.
+On the right side there are details about connected clients and their devices.
 
-![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pictures/client-interface.jpg)
-1. Client's name.
-2. Pause button.
-3. Client's ip and quantity of connected devices.
-4. Port's name.
-5. MAC.
-6. Package number.
-7. Device working time.
+![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pict/ui.png)
+___
 
-Also the interface has some functional:
-1. You can set the client name if you need. Just tap on the name's area. This name is assigned to the client's ip on the server.
+The interface has some functional:
+1. To set the client's name click on the name's area. This name is assigned to the client's ip on the server for saving.
 
-  ![Change name](https://github.com/anzodev/COMonitoring/blob/master/pictures/change-name.jpg)
+  ![Change name](https://github.com/anzodev/COMonitoring/blob/master/pict/click-name.png)
 
-2. To safely disconnect Wixel device from computer click on the pause button. Otherwise you can disconnect while receiving the data from Wixel and script stop working.
+2. To safely disconnect Wixel device from computer click on the pause button. Otherwise, when you disconnect while receiving the data from Wixel the client's app will stops working. 
 
-  ![Pause button](https://github.com/anzodev/COMonitoring/blob/master/pictures/pause.jpg)
+  ![Pause button](https://github.com/anzodev/COMonitoring/blob/master/pict/click-pause.png)
 
-3. You can hide the graph for each COM port. Tap on the port's name.
+3. You can hide the graph for each COM port. Click on the port's name. 
 
-  ![Hide graph](https://github.com/anzodev/COMonitoring/blob/master/pictures/hide-graph.jpg)
+  ![Hide graph](https://github.com/anzodev/COMonitoring/blob/master/pict/click-port.jpg)
 
 
 ## Task List
-- [ ] To make client and server scripts executable for OS Windows, Linux, Mac OS.
+- [ ] To make client and server scripts executable for Linux, Mac OS.
 - [ ] To add mobile version of system's web page.
-- [ ] To create handler in the client's script when connection with server is lost. One of the client has to do server's work.
-- [ ] To modify the system for supporting more than five client.
+- [ ] To create handler in the client's script when connection with server is lost. One of the client has to perform server's role.
+- [ ] To modify the system for supporting more than five clients.
 - [ ] Add the functional for creating network's signal level topology.
 
 
