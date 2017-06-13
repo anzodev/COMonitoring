@@ -42,7 +42,7 @@ On the right side there are details about connected clients and their devices.
 ![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pict/ui.png)
 ___
 
-The interface has some functional:
+The interface has functional:
 1. To set the client's name click on the name's area. After changing this name is assigned to the client's ip on the server for saving.
 
 &emsp;![Change name](https://github.com/anzodev/COMonitoring/blob/master/pict/click-name.png)
