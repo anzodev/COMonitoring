@@ -45,15 +45,15 @@ ___
 The interface has some functional:
 1. To set the client's name click on the name's area. This name is assigned to the client's ip on the server for saving.
 
-  ![Change name](https://github.com/anzodev/COMonitoring/blob/master/pict/click-name.png)
+&emsp;![Change name](https://github.com/anzodev/COMonitoring/blob/master/pict/click-name.png)
 
 2. To safely disconnect Wixel device from computer click on the pause button. Otherwise, when you disconnect while receiving the data from Wixel the client's app will stops working. 
 
-  ![Pause button](https://github.com/anzodev/COMonitoring/blob/master/pict/click-pause.png)
+&emsp;![Pause button](https://github.com/anzodev/COMonitoring/blob/master/pict/click-pause.png)
 
 3. You can hide the graph for each COM port. Click on the port's name. 
 
-  ![Hide graph](https://github.com/anzodev/COMonitoring/blob/master/pict/click-port.jpg)
+&emsp;![Hide graph](https://github.com/anzodev/COMonitoring/blob/master/pict/click-port.png)
 
 
 ## Task List
