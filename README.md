@@ -47,7 +47,7 @@ The interface has some functional:
 
 &emsp;![Change name](https://github.com/anzodev/COMonitoring/blob/master/pict/click-name.png)
 
-2. To safely disconnect Wixel device from computer click on the pause button. Otherwise, when you disconnect while receiving the data from Wixel the client's app will stops working. 
+2. To safely disconnect Wixel device from computer click on the pause button. Otherwise, when you disconnect while receiving the data from Wixel the client's app stops working. 
 
 &emsp;![Pause button](https://github.com/anzodev/COMonitoring/blob/master/pict/click-pause.png)
 
