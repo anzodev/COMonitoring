@@ -24,8 +24,8 @@ Monitoring system of signal level that uses programmable modules Pololu Wixel an
 Wixel starts sending a data about signal level after its connection. Python client's app finds all connected devices via virtual COM ports and gets data thrue them and sends to the server. The server sends this data to the client's browser.
 
 ## Run
-1. Put the [server part](https://github.com/anzodev/COMonitoring/tree/master/app) of the system into the server's computer. Run **com_server.exe**.
-2. Put the [client part](https://github.com/anzodev/COMonitoring/tree/master/app) of the system into the clients' computers. Run **com_client.exe**. The app opens default browser with right page.
+1. Put the [server part](https://github.com/anzodev/COMonitoring/tree/master/app/com_server.zip) of the system into the server's computer. Run **com_server.exe**.
+2. Put the [client part](https://github.com/anzodev/COMonitoring/blob/master/app/com_client.zip) of the system into the clients' computers. Run **com_client.exe**. The app opens default browser with right page.
 > Client's app can works with server's app from the one computer.
 3. Connect Wixel devices to client's computer.
 
