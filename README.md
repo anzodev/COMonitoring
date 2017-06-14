@@ -6,9 +6,9 @@ Monitoring system of signal level that uses programmable modules Pololu Wixel an
 
 ## Hardware
 
-Pololu Wixel
+[Pololu Wixel](https://www.pololu.com/docs/0J46/1)
 
-![Pololu Wixel](https://github.com/anzodev/COMonitoring/blob/master/pict/wixels.png)
+![Pololu Wixel](https://github.com/anzodev/COMonitoring/blob/master/pics/wixels.png)
 
 ## Software
 
@@ -29,30 +29,30 @@ Wixel starts sending a data about signal level after its connection. Python clie
 > Client's app can works with server's app from the one computer.
 3. Connect Wixel devices to client's computer.
 
-![Connecting Wixel devices](https://github.com/anzodev/COMonitoring/blob/master/pict/connecting-devices.png)
+![Connecting Wixel devices](https://github.com/anzodev/COMonitoring/blob/master/pics/connecting-devices.png)
 
 ## User's Web Interface
 
 Web interface consists of two parts. On the left side there is graph with data of signal level from Wixels.
 
-![Graph](https://github.com/anzodev/COMonitoring/blob/master/pict/graph.png)
+![Graph](https://github.com/anzodev/COMonitoring/blob/master/pics/graph.png)
 
 On the right side there are details about connected clients and their devices.
 
-![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pict/ui.png)
+![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pics/ui.png)
 
 **The interface has functional:**
 1. To set the client's name click on the name's area. After changing this name is assigned to the client's ip on the server for saving.
 
-&emsp;![Change name](https://github.com/anzodev/COMonitoring/blob/master/pict/click-name.png)
+&emsp;![Change name](https://github.com/anzodev/COMonitoring/blob/master/pics/click-name.png)
 
 2. To safely disconnect Wixel device from computer click on the pause button. Otherwise, when you disconnect while receiving the data from Wixel the client's app stops working. 
 
-&emsp;![Pause button](https://github.com/anzodev/COMonitoring/blob/master/pict/click-pause.png)
+&emsp;![Pause button](https://github.com/anzodev/COMonitoring/blob/master/pics/click-pause.png)
 
 3. You can hide the graph for each COM port. Click on the port's name. 
 
-&emsp;![Hide graph](https://github.com/anzodev/COMonitoring/blob/master/pict/click-port.png)
+&emsp;![Hide graph](https://github.com/anzodev/COMonitoring/blob/master/pics/click-port.png)
 
 
 ## Task List
