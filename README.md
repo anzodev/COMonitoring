@@ -33,11 +33,11 @@ Wixel starts sending a data about signal level after its connection. Python clie
 
 ## User's Web Interface
 
-Web interface consists of two parts. On the left side there is graph with data of signal level from Wixels.
+Web interface consists of two parts. There is graph with data of signal level from Wixels on the left side.
 
 ![Graph](https://github.com/anzodev/COMonitoring/blob/master/pics/graph.png)
 
-On the right side there are details about connected clients and their devices.
+There are details about connected clients and their devices on the right side.
 
 ![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pics/ui.png)
 
@@ -69,8 +69,8 @@ The source code are licensed under the [GNU GPLv3](https://www.gnu.org/licenses/
 
 ## Authors
 
-Developer - Ivan Bogachuk  
-Manager - Vladimir Sokolov
+Developer &mdash; Ivan Bogachuk  
+Manager &mdash; Vladimir Sokolov
 
 
 
