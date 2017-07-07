@@ -8,8 +8,6 @@ from time import sleep
 import socket
 
 
-
-# functions
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
@@ -44,19 +42,16 @@ def get_send_data():
             pass
 
 
-# app initialization
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
 socketio = SocketIO(app, async_mode="threading")
 
 
-# app routes
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-# socketio event handlers
 @socketio.on('connect')
 def connect():
     print('\nnew connection: ' + str(request.remote_addr) + '\n')
@@ -83,7 +78,6 @@ def get_client_name(name):
     client_name[name[0]] = name[1]
 
 
-# app start
 if __name__ == '__main__':
     client_name = {}
 
