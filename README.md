@@ -2,7 +2,7 @@
 
 Monitoring system of signal level that uses programmable modules Pololu Wixel and [Python 3.6+](https://www.python.org/downloads/).
 
-> Current version was created for OS Windows. You can run it on another OS using Python scripts in [src](/src) folder and module [cx_Freeze](http://cx-freeze.readthedocs.io/en/latest/index.html). The system supports up to 5 clients with 10 Wixels on each.    
+> Current version was created for OS Windows. You can run it on another OS using Python scripts in [src](/src) folder and module [cx_Freeze](http://cx-freeze.readthedocs.io/en/latest/index.html). The system supports up to 5 clients with 10 Wixels on each.
 
 ## Hardware
 
@@ -50,7 +50,7 @@ There are details about connected clients and their devices on the right side.
 
 &emsp;![Pause button](https://github.com/anzodev/COMonitoring/blob/master/pics/click-pause.png)
 
-3. You can hide the graph for each COM port. Click on the port's name. 
+3. You can hide the graph for each COM port. Click on the port's name.
 
 &emsp;![Hide graph](https://github.com/anzodev/COMonitoring/blob/master/pics/click-port.png)
 

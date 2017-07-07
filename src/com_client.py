@@ -10,7 +10,6 @@ import serial
 import os
 
 
-# functions
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
@@ -98,10 +97,7 @@ def listen_client_command():
             pass
 
 
-# script start
 if __name__ == '__main__':
-
-    # global variables
     server_ip           = ''
     server_port_send    = 10000
     server_port_connect = 8000
@@ -115,7 +111,6 @@ if __name__ == '__main__':
     t.daemon = True
     t.start()
 
-    # identify server ip address
     for i in range(256):
         check_ip = base_ip + str(i)
         try:
@@ -126,14 +121,11 @@ if __name__ == '__main__':
         except:
             pass
 
-    # open default browser with right page
     print('connect to %s successful...' % server_ip)
     os.system("start \"\" http:" + server_ip + ":" + str(server_port_connect))
 
 
     while True:
-
-        # detect client's pause
         if client_command == 'pause':
             try:
                 socket_send_to(server_ip,
@@ -156,7 +148,6 @@ if __name__ == '__main__':
             client_command = ''
 
         else:
-            # identify avaliable COM ports
             connected_ports = serial_ports()
             package         = {}
 
@@ -171,7 +162,6 @@ if __name__ == '__main__':
                         pass
             else:
                 for port in connected_ports:
-                    # port initialization
                     ser          = serial.Serial()
                     ser.port     = port
                     ser.baudrate = 9600
@@ -183,7 +173,6 @@ if __name__ == '__main__':
                     ser.rtscts   = False
                     ser.dsrdtr   = False
 
-                    # getting data from port
                     try:
                         ser.open()
                         port_data = ser.readline().decode('utf-8')
@@ -191,10 +180,8 @@ if __name__ == '__main__':
                     except:
                         pass
 
-                    # create new element for global package
                     package[port] = create_package(port_data)
 
-                # sending global package
                 try:
                     socket_send_to(server_ip,
                                    server_port_send,
