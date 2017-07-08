@@ -42,7 +42,7 @@ def time_convert(millis):
 def signal_level_value(package):
     start_point = package.find('[')
     end_point   = package.find(']')
-    package     = package[start_point+2:end_point-1].replace(' ', ',')
+    package     = package[start_point + 2:end_point - 1].replace(' ', ',')
     return package
 
 
@@ -52,10 +52,10 @@ def create_package(package):
     serial  = package[0].strip('\r\n\n')
     number  = package[1][1:-1]
     time    = int(package[2], 16)
-    package = { "serial"  : serial,
-                            "number"  : number,
-                            "time"    : time_convert(str(time)),
-                            "values"  : values }
+    package = {"serial": serial,
+               "number": number,
+               "time": time_convert(str(time)),
+               "values": values }
     return package
 
 
@@ -114,7 +114,7 @@ if __name__ == '__main__':
     for i in range(256):
         check_ip = base_ip + str(i)
         try:
-            check_connection = socket.create_connection((check_ip, server_port_send), 0.01)
+            check_connection = socket.create_connection((check_ip,server_port_send), 0.01)
             check_connection.close()
             server_ip = check_ip
             break
@@ -124,13 +124,11 @@ if __name__ == '__main__':
     print('connect to %s successful...' % server_ip)
     os.system("start \"\" http:" + server_ip + ":" + str(server_port_connect))
 
-
     while True:
         if client_command == 'pause':
             try:
-                socket_send_to(server_ip,
-                               server_port_send,
-                               str({'pause': client_ip.replace("'",'"')}))
+                socket_send_to(server_ip, server_port_send,
+                               str({'pause': client_ip.replace('\'','"')}))
             except:
                 pass
 
@@ -139,9 +137,8 @@ if __name__ == '__main__':
 
         elif client_command == 'work':
             try:
-                socket_send_to(server_ip,
-                               server_port_send,
-                               str({'work': client_ip.replace("'",'"')}))
+                socket_send_to(server_ip, server_port_send,
+                               str({'work': client_ip.replace('\'','"')}))
             except:
                 pass
 
@@ -154,9 +151,8 @@ if __name__ == '__main__':
             if connected_ports == []:
                 if disconnect_toggle:
                     try:
-                        socket_send_to(server_ip,
-                                       server_port_send,
-                                       str({'disconnect': client_ip.replace("'",'"')}))
+                        socket_send_to(server_ip, server_port_send,
+                                       str({'disconnect': client_ip.replace('\'','"')}))
                         disconnect_toggle = False
                     except:
                         pass
@@ -183,9 +179,8 @@ if __name__ == '__main__':
                     package[port] = create_package(port_data)
 
                 try:
-                    socket_send_to(server_ip,
-                                   server_port_send,
-                                   str({client_ip: package}).replace("'",'"'))
+                    socket_send_to(server_ip, server_port_send,
+                                   str({client_ip: package}).replace('\'','"'))
                 except:
                     pass
 
