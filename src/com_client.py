@@ -114,7 +114,7 @@ if __name__ == '__main__':
     for i in range(256):
         check_ip = base_ip + str(i)
         try:
-            check_connection = socket.create_connection((check_ip,server_port_send), 0.01)
+            check_connection = socket.create_connection((check_ip, server_port_send), 0.01)
             check_connection.close()
             server_ip = check_ip
             break
