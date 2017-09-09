@@ -9,15 +9,12 @@ import socket
 
 
 def get_ip():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    try:
-        s.connect(('google.co.uk', 80))
-        return s.getsockname()[0]
-    except:
-        return '127.0.0.1'
+    '''Get the network adapter's IP address.'''
+    return socket.gethostbyname_ex(socket.gethostname())[2][0]
 
 
 def get_send_data():
+    '''Receive package and send it to client's browser.'''
     s_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s_server.bind((get_ip(), 10000))
     s_server.listen(5)
@@ -54,6 +51,7 @@ def index():
 
 @socketio.on('connect')
 def connect():
+    '''Client connection handler'''
     print('\nnew connection: ' + str(request.remote_addr) + '\n')
 
     global client_name
@@ -63,6 +61,7 @@ def connect():
 
 @socketio.on('get_send_command')
 def get_command(command):
+    '''Send command from browser to the client's script'''
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((str(command[0]), 12000))
@@ -74,6 +73,7 @@ def get_command(command):
 
 @socketio.on('get_client_name')
 def get_client_name(name):
+    '''Receive name from browser and save it in global dict.'''
     global client_name
     client_name[name[0]] = name[1]
 

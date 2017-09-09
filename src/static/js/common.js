@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
 
-  // functions
   function createGraph(array) {
     graphValues    = [],
     graphFrequency = 2403.47;
@@ -18,7 +17,6 @@ $(document).ready(function() {
   };
 
 
-  // global variables
   var options = {
     xaxis: {
       min: 2403.47,
@@ -57,21 +55,21 @@ $(document).ready(function() {
       return true
     }
 
-    // client's info variables
+    // client's data variables
     var clientIP,
         clientClassIP,
         clientPackage,
         clientDOM,
         deviceCounter = 0,
 
-        // client's device info variables
+        // client's device data variables
         port   = [],
         serial = [],
         number = [],
         time   = [],
         signal = [];
 
-    // get client's info
+    // extract client's data
     for(key in package) {
       clientIP      = key;
       clientClassIP = key.replace(/\./g, '-');
@@ -79,7 +77,7 @@ $(document).ready(function() {
       clientDOM     = '.client.' + clientClassIP
     }
 
-    // get client's device info
+    // extract client's device data
     for(key in clientPackage) {
       port.push(key);
       serial.push(clientPackage[key].serial);
@@ -90,7 +88,7 @@ $(document).ready(function() {
       deviceCounter += 1;
     }
 
-    // append new client. If it alredy exists, refresh device counter and client name
+    // append new client. If it alredy exists, refresh device counter and client's name
     if($('.client-list > li').hasClass(clientClassIP)) {
       $(clientDOM + ' .client-info .info span:nth-child(2) span').html(deviceCounter);
       $(clientDOM + ' .client-info .name span').html(clientNames[clientClassIP]);
@@ -119,7 +117,7 @@ $(document).ready(function() {
         '</li>'
       );
 
-      // event handlers for client
+      // pause handler
       $(clientDOM + ' .pause-button i').on('click', function() {
         if($(this).hasClass('fa-pause')) {
           socket.emit('get_send_command', [clientIP, 'pause']);
@@ -128,6 +126,7 @@ $(document).ready(function() {
         }
       });
 
+      // name setup handler
       $(clientDOM + ' .name span').on('click', function() {
         $(this).addClass('disable');
         $(this).next().addClass('active');
@@ -151,10 +150,10 @@ $(document).ready(function() {
       $('ul.client-list > li:first-child').addClass('active');
     }
 
-    // start window disable
+    // disable start window
     $('.start-window').removeClass('fadeOutLeft').addClass('animated fadeOutLeft');
 
-    // if client has class active show his device info and graph
+    // if client has class active show his device data and graph
     if($(clientDOM).hasClass('active')) {
       $(clientDOM + ' .client-device ul').empty();
       for(var i = 0; i < deviceCounter; i++) {

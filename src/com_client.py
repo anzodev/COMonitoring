@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from datetime import time
 from sys import platform
 from glob import glob
 from threading import Thread
@@ -11,55 +10,65 @@ import os
 
 
 def get_ip():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    try:
-        s.connect(('google.co.uk', 80))
-        return s.getsockname()[0]
-    except:
-        return '127.0.0.1'
+    '''Get the network adapter's IP address.'''
+    return socket.gethostbyname_ex(socket.gethostname())[2][0]
 
 
-def socket_send_to(host, port, str_data):
+def socket_send_to(host, port, data):
+    '''Send data to some host using TCP.
+
+    Keyword arguments:
+    host -- hostname for connection
+    port -- port number for connection
+    data -- data that is transmitted
+    '''
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
     s.send(str.encode(str_data))
     s.close()
 
 
-def time_convert(millis):
-    millis  = int(millis)
-    seconds = int((millis / 1000) % 60)
-    minutes = int((millis / (1000 * 60)) % 60)
-    hours   = int((millis / (1000 * 60 * 60)) % 24)
-    days    = int((millis / (1000 * 60 * 60 * 24) % 24))
+def time_convert(ms):
+    '''Convert time from milliseconds to string like "11:06:34".
 
-    if days >= 1:
-        return '%sd' % days
-    else:
-        return time(hour = hours, minute = minutes, second = seconds).isoformat()
+    Keyword arguments:
+    ms -- milliseconds
+    '''
+    s = (ms // 1000) % 60
+    m = (ms // 60000) % 60
+    h = (ms // 3600000) % 24
+    return '%02d:%02d:%02d' % (h, m, s)
 
 
 def signal_level_value(package):
+    '''Slice signal's values from the package.
+
+    Keyword arguments:
+    package -- received package with data
+    '''
     start_point = package.find('[')
     end_point   = package.find(']')
-    package     = package[start_point + 2:end_point - 1].replace(' ', ',')
-    return package
+    return package[start_point + 2:end_point - 1].replace(' ', ',')
 
 
 def create_package(package):
+    '''Form new package with structured data using received package.
+
+    Keyword arguments:
+    package -- received package with data
+    '''
     values  = signal_level_value(package)
     package = package.split(' ')
     serial  = package[0].strip('\r\n\n')
     number  = package[1][1:-1]
     time    = int(package[2], 16)
-    package = {"serial": serial,
-               "number": number,
-               "time": time_convert(str(time)),
-               "values": values }
+    package = {"serial": serial, "number": number,
+               "time": time_convert(str(time)), "values": values}
     return package
 
 
 def serial_ports():
+    '''Check available COM connections.'''
     if platform.startswith('win'):
         ports = ['COM%s' % (i + 1) for i in range(256)]
     elif platform.startswith('linux') or platform.startswith('cygwin'):
@@ -81,6 +90,7 @@ def serial_ports():
 
 
 def listen_client_command():
+    '''Listen commands from browsers.'''
     s_command = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s_command.bind((get_ip(), 12000))
     s_command.listen(1)
@@ -103,14 +113,15 @@ if __name__ == '__main__':
     server_port_connect = 8000
     client_ip           = get_ip()
     base_ip             = client_ip[:client_ip.rfind('.') + 1]
-
     client_command      = ''
     disconnect_toggle   = True
 
+    # starting new process with listening command from client
     t = Thread(target = listen_client_command, args = ())
     t.daemon = True
     t.start()
 
+    # trying to find server IP address by creation connection to the server.
     for i in range(256):
         check_ip = base_ip + str(i)
         try:
@@ -121,10 +132,15 @@ if __name__ == '__main__':
         except:
             pass
 
-    print('connect to %s successful...' % server_ip)
+    # if the loop above doesn't find any ip address, client have to input it
+    if server_ip == '':
+        server_ip = input('input server IP address: ')
+
+    # run browser with connection to server
     os.system("start \"\" http:" + server_ip + ":" + str(server_port_connect))
 
     while True:
+
         if client_command == 'pause':
             try:
                 socket_send_to(server_ip, server_port_send,
@@ -148,16 +164,9 @@ if __name__ == '__main__':
             connected_ports = serial_ports()
             package         = {}
 
-            if connected_ports == []:
-                if disconnect_toggle:
-                    try:
-                        socket_send_to(server_ip, server_port_send,
-                                       str({'disconnect': client_ip.replace('\'','"')}))
-                        disconnect_toggle = False
-                    except:
-                        pass
-            else:
+            if connected_ports != []:
                 for port in connected_ports:
+                    # serialize COM port
                     ser          = serial.Serial()
                     ser.port     = port
                     ser.baudrate = 9600
@@ -185,3 +194,11 @@ if __name__ == '__main__':
                     pass
 
                 disconnect_toggle = True
+            else:
+                if disconnect_toggle:
+                    try:
+                        socket_send_to(server_ip, server_port_send,
+                                       str({'disconnect': client_ip.replace('\'','"')}))
+                        disconnect_toggle = False
+                    except:
+                        pass
