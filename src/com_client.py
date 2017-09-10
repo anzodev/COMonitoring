@@ -34,9 +34,9 @@ def time_convert(ms):
     Keyword arguments:
     ms -- milliseconds
     '''
-    s = (ms // 1000) % 60
-    m = (ms // 60000) % 60
-    h = (ms // 3600000) % 24
+    s = (int(ms) // 1000) % 60
+    m = (int(ms) // 60000) % 60
+    h = (int(ms) // 3600000) % 24
     return '%02d:%02d:%02d' % (h, m, s)
 
 
