@@ -24,7 +24,7 @@ def socket_send_to(host, port, data):
     '''
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
-    s.send(str.encode(str_data))
+    s.send(str.encode(data))
     s.close()
 
 
