@@ -10,11 +10,11 @@ Monitoring system of signal level that uses programmable modules Pololu Wixel an
 
 ![Pololu Wixel](https://github.com/anzodev/COMonitoring/blob/master/pics/wixels.png)
 
-## Software
+## Loading Firmware
 
-1. [Download](https://www.pololu.com/docs/0J46/3.a) and install Windows driver.
-2. [Download](https://www.pololu.com/docs/0J46/10.a) Wixel SDK.
-3. [Use](https://www.pololu.com/docs/0J46/10.b) this manual to load firmware.
+1. Download and install Windows [driver](https://www.pololu.com/docs/0J46/3.a) .
+2. Download [Wixel SDK](https://www.pololu.com/docs/0J46/10.a).
+3. Use this [manual](https://www.pololu.com/docs/0J46/10.b) to load firmware.
 4. Load the [firmware](wixel-sdk/apps/RPi_2oleds_ssd1306) into Pololu Wixel.
 
 > For additional information see manufacturer [User's Guide](https://www.pololu.com/docs/0J46).
@@ -22,6 +22,8 @@ Monitoring system of signal level that uses programmable modules Pololu Wixel an
 ## How Does It Work
 
 Wixel starts sending a data about signal level after its connection. Python client's app finds all connected devices via virtual COM ports and gets data thrue them and sends to the server. The server sends this data to the client's browser.
+
+![Schema](https://github.com/anzodev/COMonitoring/blob/master/pics/schema.jpg)
 
 ## Run
 1. Put the [server part](https://github.com/anzodev/COMonitoring/tree/master/app/com_server.zip) of the system into the server's computer. Run **com_server.exe**.
@@ -33,11 +35,12 @@ Wixel starts sending a data about signal level after its connection. Python clie
 
 ## User's Web Interface
 
-Web interface consists of two parts. There is graph with data of signal level from Wixels on the left side.
+Web interface consists of two parts:
+1. Chart with signal level on the left side.
 
 ![Graph](https://github.com/anzodev/COMonitoring/blob/master/pics/graph.png)
 
-There are details about connected clients and their devices on the right side.
+2. Details about modules on the right side.
 
 ![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pics/ui.png)
 
