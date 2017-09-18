@@ -38,11 +38,11 @@ Wixel starts sending a data about signal level after its connection. Python clie
 Web interface consists of two parts:
 1. Chart with signal level on the left side.
 
-![Graph](https://github.com/anzodev/COMonitoring/blob/master/pics/graph.png)
+&emsp;![Graph](https://github.com/anzodev/COMonitoring/blob/master/pics/graph.png)
 
 2. Details about modules on the right side.
 
-![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pics/ui.png)
+&emsp;![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pics/ui.png)
 
 **The interface has functional:**
 1. To set the client's name click on the name's area. After changing this name is assigned to the client's ip on the server for saving.
