@@ -12,7 +12,7 @@ Monitoring system of signal level that uses programmable modules Pololu Wixel an
 
 ## Loading Firmware
 
-1. Download and install Windows [driver](https://www.pololu.com/docs/0J46/3.a) .
+1. Download and install Windows [driver](https://www.pololu.com/docs/0J46/3.a).
 2. Download [Wixel SDK](https://www.pololu.com/docs/0J46/10.a).
 3. Use this [manual](https://www.pololu.com/docs/0J46/10.b) to load firmware.
 4. Load the [firmware](wixel-sdk/apps/RPi_2oleds_ssd1306) into Pololu Wixel.
