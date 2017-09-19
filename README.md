@@ -40,7 +40,7 @@ Web interface consists of two parts:
 
 &emsp;![Graph](https://github.com/anzodev/COMonitoring/blob/master/pics/graph.png)
 
-2. Details about modules on the right side.
+2. Details about client and his modules on the right side.
 
 &emsp;![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pics/ui.png)
 
