@@ -45,7 +45,7 @@ Web interface consists of two parts:
 &emsp;![Client interface](https://github.com/anzodev/COMonitoring/blob/master/pics/ui.png)
 
 **The interface has functional:**
-1. To set the client's name click on the name's area. After changing this name is assigned to the client's ip on the server for saving.
+1. To set the client's name click on the name's area. After changing this name is assigned to the client's IP on the server for saving.
 
 &emsp;![Change name](https://github.com/anzodev/COMonitoring/blob/master/pics/click-name.png)
 
