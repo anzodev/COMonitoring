@@ -169,7 +169,7 @@ void main()
     {
         if (usbComRxAvailable() == 0)
         {
-            if (isPinHigh(0) && mute == 1) // Measure voltage on P0_0
+            if (isPinHigh(0) || mute == 1) // Measure voltage on P0_0
             {
                 LED_RED(0);
                 frequentTasks();
